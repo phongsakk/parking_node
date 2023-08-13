@@ -1,17 +1,19 @@
-import express from "express";
+import express, { json } from "express";
 import indexController from "./controllers/indexController";
 import adminController from "./controllers/adminController";
 import userController from "./controllers/userController";
 import parkingController from "./controllers/parkingController";
+
 const app = express();
+app.use(json());
 
 const port = 3000;
 
 app.get("/", indexController.index);
 
 // Authorization
-app.get("/register", indexController.index);
-app.post("/login", indexController.index);
+app.post("/register", indexController.register);
+app.post("/login", indexController.login);
 
 // Admin routes
 app.get("/admin/parkings", adminController.getParking);
