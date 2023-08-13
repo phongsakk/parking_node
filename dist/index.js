@@ -12,17 +12,17 @@ const app = (0, express_1.default)();
 const port = 3000;
 app.get("/", indexController_1.default.index);
 // Authorization
-app.post("register", indexController_1.default.index);
-app.post("login", indexController_1.default.index);
+app.get("/register", indexController_1.default.index);
+app.post("/login", indexController_1.default.index);
 // Admin routes
-app.get("admin/parkings", adminController_1.default.getParking);
-app.post("admin/parkings", adminController_1.default.postParking);
-app.get("admin/quotas", adminController_1.default.getQuotas);
-app.post("admin/quotas", adminController_1.default.postQuotas);
-app.get("admin/user/info", userController_1.default.info);
+app.get("/admin/parkings", adminController_1.default.getParking);
+app.post("/admin/parkings", adminController_1.default.postParking);
+app.get("/admin/quotas", adminController_1.default.getQuotas);
+app.post("/admin/quotas", adminController_1.default.postQuotas);
+app.get("/admin/user/info", userController_1.default.info);
 // User routes
-app.get("parking/slot", parkingController_1.default.slot);
-app.post("parking/request", parkingController_1.default.request);
+app.get("/parking/slot", parkingController_1.default.slot);
+app.post("/parking/request", parkingController_1.default.request);
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
